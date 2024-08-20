@@ -1,0 +1,10 @@
+{
+    "name": "Sofiia",
+    "hobbies": ["Reading", "Painting"],
+    "skills": {
+      "html": "4",
+      "css": "4",
+      "js": "3"
+    },
+    "email": "some-fake@email.com"
+  }
