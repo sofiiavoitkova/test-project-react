@@ -1,35 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+function Greeting(props) {
+  const { name, ...rest } = props;
+  console.log(rest);
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <h1 className="greeting" {...rest}>
+      Hello <i className="emphasize">{name}</i>, Welcome!
+    </h1>
+  );
 }
 
-export default App
+function App() {
+  return (
+    <Greeting
+      name="Everyone"
+      style={{ border: "solid red" }}
+      aria-hidden={true}
+      id="some-id"
+    ></Greeting>
+  );
+}
+
+export default App;
+
+/*function Greeting(props) {
+  const { name } = props;
+  return (
+    <h1 className="greeting">
+      Hello <i className="emphasize">{name}</i>, Welcome!
+    </h1>
+  );
+}
+
+function App() {
+  return (
+    <Greeting name="Everyone" style={{ border: "solid red"}} aria-hidden></Greeting>
+  );
+}
+
+export default App;
+*/
