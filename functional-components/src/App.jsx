@@ -1,35 +1,44 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
+import { Component, useState } from "react";
 
-function App() {
-  const [count, setCount] = useState(0)
+class Appl extends Component {
+  // Field to store reactive data
+  state = { data: false };
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+  // Regular class method to update state
+  toggle = () => this.setState({ data: !this.state.data });
+
+  // Markup
+  render() {
+    const { data } = this.state;
+    return (
+      <main>
+        <h1>Class component with State</h1>
+        <p>{data === true ? "True" : "False"}</p>
+        <button onClick={this.toggle}>Toggle</button>
+      </main>
+    );
+  }
 }
 
-export default App
+function App() {
+  const [confirmation, updateConfirmation] = useState({
+    isConfirmed: false,
+    confirmationDate: null,
+  });
+
+  const toggle = () => {
+    updateConfirmation({ isConfirmed: true });
+    console.log(confirmation.isConfirmed);
+  };
+
+  return (
+    <main>
+      <h1>Class component with State</h1>
+      <p>{confirmation.isConfirmed === true ? "True" : "False"}</p>
+      <button onClick={toggle}>Toggle</button>
+    </main>
+  );
+}
+
+export default App;
