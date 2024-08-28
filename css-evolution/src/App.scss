@@ -1,0 +1,29 @@
+$input-border-color: #eeeeee;
+$input-outline-color-focus: goldenrod;
+$input-border-size: 1px;
+
+%input {
+  padding: 0.5em 0.5em 0.5em 0.5em;
+  font-size: 1.5em;
+  border: $input-border-size solid $input-border-color;
+  &:focus {
+    outline: 2px solid $input-outline-color-focus;
+  }
+}
+
+.root {
+  margin-bottom: 1rem;
+}
+
+.input {
+  @extend %input;
+}
+
+.root {
+  margin-bottom: 2rem;
+}
+
+.select{
+  @extend %input;
+  width: 100;
+}
